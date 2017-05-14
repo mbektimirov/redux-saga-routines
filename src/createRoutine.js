@@ -13,13 +13,13 @@ export default function createRoutine(routineName = '', payloadCreator = identit
     const stageActionCreator = (payload) => ({
       type: stageActionType,
       payload: payloadCreator(payload),
-      namespace: routineName,
+      namespace: routineName.toLowerCase(),
       kind: 'async',
     });
     stageActionCreator.ACTION_TYPE = stageActionType;
 
     return Object.assign(result, {
-      [stage]: stageActionType,
+      [stage]: stageActionType.toUpperCase(),
       [stage.toLowerCase()]: stageActionCreator,
     });
   }, {});

@@ -13,6 +13,8 @@ export default function createRoutine(routineName = '', payloadCreator = identit
     const stageActionCreator = (payload) => ({
       type: stageActionType,
       payload: payloadCreator(payload),
+      namespace: routineName,
+      kind: 'async',
     });
     stageActionCreator.ACTION_TYPE = stageActionType;
 

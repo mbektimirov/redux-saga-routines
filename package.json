@@ -68,7 +68,8 @@
     "build:cjs": "cross-env BABEL_ENV=development babel src/ --out-dir dist",
     "build:es": "cross-env BABEL_ENV=es babel src/ --out-dir es",
     "build": "npm run build:cjs && npm run build:es",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postinstall": "npm run build"
   },
   "license": "MIT",
   "dependencies": {}

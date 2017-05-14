@@ -51,22 +51,22 @@ describe('createRoutine', () => {
 
     expect(routine.TRIGGER).to.equal(TRIGGER);
     expect(routine.trigger).to.be.a('function');
-    expect(routine.trigger(data)).to.eql({ type: TRIGGER, payload: data });
+    expect(routine.trigger(data)).to.eql({ type: TRIGGER, payload: data, namespace: PREFIX.toLowerCase(), kind: 'async' });
 
     expect(routine.REQUEST).to.equal(REQUEST);
     expect(routine.request).to.be.a('function');
-    expect(routine.request(data)).to.eql({ type: REQUEST, payload: data });
+    expect(routine.request(data)).to.eql({ type: REQUEST, payload: data, namespace: PREFIX.toLowerCase(), kind: 'async' });
 
     expect(routine.SUCCESS).to.equal(SUCCESS);
     expect(routine.success).to.be.a('function');
-    expect(routine.success(data)).to.eql({ type: SUCCESS, payload: data });
+    expect(routine.success(data)).to.eql({ type: SUCCESS, payload: data, namespace: PREFIX.toLowerCase(), kind: 'async' });
 
     expect(routine.FAILURE).to.equal(FAILURE);
     expect(routine.failure).to.be.a('function');
-    expect(routine.failure(data)).to.eql({ type: FAILURE, payload: data });
+    expect(routine.failure(data)).to.eql({ type: FAILURE, payload: data, namespace: PREFIX.toLowerCase(), kind: 'async' });
 
     expect(routine.FULFILL).to.equal(FULFILL);
     expect(routine.fulfill).to.be.a('function');
-    expect(routine.fulfill(data)).to.eql({ type: FULFILL, payload: data });
+    expect(routine.fulfill(data)).to.eql({ type: FULFILL, payload: data, namespace: PREFIX.toLowerCase(), kind: 'async' });
   });
 });

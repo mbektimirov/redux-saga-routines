@@ -9,7 +9,7 @@ export default function createRoutine(routineName = '', payloadCreator = identit
   }
 
   const routineParams = stages.reduce((result, stage) => {
-    const stageActionType = `${routineName}_${stage}`;
+    const stageActionType = `${routineName}_${stage}`.toUpperCase();
     const stageActionCreator = (payload) => ({
       type: stageActionType,
       payload: payloadCreator(payload),
@@ -19,7 +19,7 @@ export default function createRoutine(routineName = '', payloadCreator = identit
     stageActionCreator.ACTION_TYPE = stageActionType;
 
     return Object.assign(result, {
-      [stage]: stageActionType.toUpperCase(),
+      [stage]: stageActionType,
       [stage.toLowerCase()]: stageActionCreator,
     });
   }, {});
